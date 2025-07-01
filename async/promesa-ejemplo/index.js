@@ -80,9 +80,8 @@ const githubPublicRepos = [
   { id: 5, owner: "anita-dev", name: "example" },
 ];
 
-// vamos a revisar esta funcion getPublicRepos con promesas : no esta funcionando correctamente
 function getPublicRepos(username) {
-  return new Promise((reject, resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(function () {
       // Simulamos un posible error de conexión con Github
       const hasConnectionError = Math.random() > 0.9;
@@ -103,8 +102,8 @@ function getPublicRepos(username) {
 // ejecutando la funcion getPublicRepos
 // hello-world
 // say-hi
-const otraPromesa = getPublicRepos("pepe-20");
+const otraPromesa = getPublicRepos("anita-dev");
 
 otraPromesa
-  .then((repos) => repos.forEach((repo) => console.log(repo)))
+  .then((repos) => repos.forEach((repo) => console.log(repo.name)))
   .catch((error) => console.log(error.message));
