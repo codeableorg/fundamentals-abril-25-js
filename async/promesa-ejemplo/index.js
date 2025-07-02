@@ -36,15 +36,20 @@ function getUser(email, password) {
   });
 }
 
+const correoPepe =  "pepe@mail.com";
 const passwordPepeCorrecto = "supersecret";
 const passwordPepeIncorrecto = "manzana";
 const correoAna = "ana@mail.com";
 const passwordAna = "letmein";
 
-const promesa = getUser(correoAna, passwordAna);
+const promesa = getUser(correoPepe , passwordPepeCorrecto);
 
 promesa
-  .then((user) => console.log("¡Bienvenid@ " + user.name + "!"))
+  .then((user) => {
+    console.log("¡Bienvenid@ " + user.name + "!");
+    return getPublicRepos(user.githubUsername);
+  }) // que hacer cuando tenemos el usuario
+  .then((repos) => repos.forEach((repo) => console.log(repo.name))) // que hacer cuando tenemos los repositorios
   .catch((error) => console.error(`Se encontro un error: ${error.message}`));
 
 /*
@@ -90,8 +95,6 @@ function getPublicRepos(username) {
       }
 
       const repos = githubPublicRepos.filter((repo) => repo.owner === username);
-      console.log("estoy en getPublicRepos");
-      console.log(repos);
 
       resolve(repos);
     }, 2000);
@@ -102,8 +105,11 @@ function getPublicRepos(username) {
 // ejecutando la funcion getPublicRepos
 // hello-world
 // say-hi
-const otraPromesa = getPublicRepos("anita-dev");
 
+/*
+
+const otraPromesa = getPublicRepos("anita-dev");
 otraPromesa
-  .then((repos) => repos.forEach((repo) => console.log(repo.name)))
+  .then((repos) => repos.forEach((repo) => console.log(repo.name))) // que hacer cuando tenemos los repositorios
   .catch((error) => console.log(error.message));
+  */
