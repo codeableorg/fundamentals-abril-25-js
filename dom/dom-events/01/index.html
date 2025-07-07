@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Events Examples</h1>
+    <button id="mouse-over">Pasa el mouse por encima</button>
+    <button id="click">Haz click</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM cargado!');
+            
+            const mouseOverButton = document.querySelector('#mouse-over');
+            mouseOverButton.addEventListener('mouseover', () => {
+                console.log('se paso el mouse por encima');
+            });
+            const clickButton = document.querySelector('#click');
+            clickButton.addEventListener('click', () => {
+                console.log('se hizo click');
+            });
+        });
+    </script>
+</body>
+</html>

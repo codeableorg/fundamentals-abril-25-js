@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Events Object</h1>
+    
+    <div class="container">
+        <button id="click-btn">Click me to see event object</button>
+        <button id="mouse-btn">Hover over me</button>
+        <input type="text" id="input-field" placeholder="Type something here">
+        
+        <div id="output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9;">
+            <h3>Event Object Properties:</h3>
+            <pre id="event-info">Click a button or type in the input to see event object properties</pre>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const output = document.getElementById('event-info');
+            
+            function displayEventInfo(event, eventType) {
+                const eventData = {
+                    type: event.type,
+                    target: event.target.tagName + (event.target.id ? `#${event.target.id}` : ''),
+                    currentTarget: event.currentTarget.tagName + (event.currentTarget.id ? `#${event.currentTarget.id}` : ''),
+                    timestamp: event.timeStamp,
+                    bubbles: event.bubbles,
+                    cancelable: event.cancelable,
+                    defaultPrevented: event.defaultPrevented,
+                    eventPhase: event.eventPhase,
+                    isTrusted: event.isTrusted,
+                    // Mouse specific properties
+                    clientX: event.clientX,
+                    clientY: event.clientY,
+                    pageX: event.pageX,
+                    pageY: event.pageY,
+                    // Keyboard specific properties
+                    key: event.key,
+                    code: event.code,
+                    ctrlKey: event.ctrlKey,
+                    shiftKey: event.shiftKey,
+                    altKey: event.altKey,
+                    metaKey: event.metaKey,
+                    // Input specific properties
+                    value: event.target.value,
+                    // All properties (shows everything)
+                    allProperties: Object.keys(event)
+                };
+                
+                output.textContent = JSON.stringify(eventData, null, 2);
+            }
+            
+            // Click event
+            document.getElementById('click-btn').addEventListener('click', (event) => {
+                displayEventInfo(event, 'click');
+            });
+            
+            // Mouse events
+            document.getElementById('mouse-btn').addEventListener('mouseenter', (event) => {
+                displayEventInfo(event, 'mouseenter');
+            });
+            
+            document.getElementById('mouse-btn').addEventListener('mouseleave', (event) => {
+                displayEventInfo(event, 'mouseleave');
+            });
+            
+            // Input events
+            document.getElementById('input-field').addEventListener('input', (event) => {
+                displayEventInfo(event, 'input');
+            });
+            
+            document.getElementById('input-field').addEventListener('keydown', (event) => {
+                displayEventInfo(event, 'keydown');
+            });
+            
+            // Document level events
+            document.addEventListener('click', (event) => {
+                console.log('Document clicked!', event);
+            });
+            
+            document.addEventListener('keydown', (event) => {
+                console.log('Key pressed on document:', event.key);
+            });
+        });
+    </script>
+</body>
+</html>
