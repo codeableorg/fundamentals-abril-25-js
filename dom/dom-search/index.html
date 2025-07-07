@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejercicio</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <h1>Accede al span</h1>
+      <section>
+        <ul>
+          <li>
+            <a href=""> aca viene el <span id="objetivo">span</span></a>
+          </li>
+          <li>otro elemento</li>
+          <li>un elemento mas</li>
+        </ul>
+      </section>
+      <div class="big box">Texto en caja grande</div>
+    </main>
+    <script>
+      // codigo JavaScript
+      // encontrar partes del HTML
+      // modelo de ese HTML : DOM
+      const spanBrowseDom =
+        document.body.firstElementChild.children[1].firstElementChild
+          .firstElementChild.firstElementChild.firstElementChild; // ​span
+      const spanSearchDOM = document.getElementById("objetivo"); // span
+      const spanWindowProperty = window.objetivo;
+      const spanSearchQuery = document.querySelector("#objetivo");
+      const liList = document.querySelectorAll("li");
+      const main = spanSearchQuery.closest("main");
+      const h1 = spanSearchQuery.closest("h1");
+      const div = document.querySelector("div");
+
+      console.log(spanBrowseDom);
+      console.log(spanSearchDOM);
+      console.log(spanWindowProperty);
+      console.log(spanSearchQuery);
+      console.log(liList);
+      console.log(main);
+      console.log(h1);
+      console.log(div.matches(".big"));
+      console.log(div.matches(".box"));
+      console.log(div.matches(".other"));
+    </script>
+  </body>
+</html>

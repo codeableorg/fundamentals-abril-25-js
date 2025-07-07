@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .ejemplo {
+      background-color: linen;
+      padding: 1rem;
+      border-radius: 16px;
+    }
+    .box {
+      border: 1px solid gray;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+    }
+    .big {
+      padding: 2rem;
+    }
+    .special {
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+    .dark {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <body>
+    <button>dark</button>
+    <h3>DOM Styling</h3>
+    <div class="box big">Una caja grande</div>
+    <script>
+      // opcion 1 : utilizando objeto style => estilos inline al elemento
+      const div = document.createElement("div");
+
+      /*
+      div.style.backgroundColor = "linen";
+      div.style.padding = "1rem";
+      div.style.borderRadius = "16px";
+      */
+
+      // opcion 2 : agregando una clase
+      div.className = "ejemplo";
+
+      document.body.append(div);
+
+      // agregar una clase 'special' al div box
+      const divBox = document.querySelector(".box");
+
+      // divBox.className += " special";
+
+      // agregar la clase special de manera alternada
+      /*
+      const classList = divBox.className.split(" "); // ["box", "big"... ]
+
+      // Verificamos si incluye "special"
+      if (classList.includes("special")) {
+        // La quitamos si la incluye
+        const index = classList.indexOf("special");
+        classList.splice(index, 1);
+      } else {
+        // La agregamos si no la incluye
+        classList.push("special");
+      }
+
+      // Finalmente reasignamos el resultado a className
+      divBox.className = classList.join(" ");
+      */
+
+      // agregando dark al body
+      const button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        const body = document.body;
+        body.classList.toggle("dark");
+
+        if (body.classList.contains("dark")) {
+          button.textContent = "light";
+        } else {
+          button.textContent = "dark";
+        }
+      });
+
+      divBox.classList.add("special");
+      console.log(divBox.classList);
+    </script>
+  </body>
+</html>

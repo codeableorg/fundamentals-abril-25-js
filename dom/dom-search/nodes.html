@@ -1,0 +1,24 @@
+<body>
+  <div id="contenido">
+    <p>Aqui el contenido del div:</p>
+    <ul>
+      <li>Contenido 1</li>
+      <li>Contenido <span>especial</span></li>
+    </ul>
+  </div>
+
+  <script>
+    const divEl = document.querySelector("#contenido");
+
+    let text = divEl.textContent;
+    ("\n      Aqui el contenido del div:\n      \n        Contenido 1\n        Contenido especial\n      \n    ");
+    console.log(text);
+    // divEl.textContent = "<p>hola mundo</p>";
+    // divEl.innerHTML = "<p>hola mundo</p>";
+    divEl.outerHTML = "<p>hola mundo</p>";
+    // innerHTML vs textContent
+
+
+    // innerHTML vs outerHTML
+  </script>
+</body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="messages">
+        <!-- <div class="message">
+          <strong>Micaela:</strong>Este es un mensaje 😄
+        </div> -->
+      </div>
+    </main>
+    <script>
+      // creamos nodos elemento
+      const div = document.createElement("div"); // crea un p vacío
+
+      // configuramos su estilo
+      div.className = "message";
+
+      // agregar contenido
+      div.innerHTML = "<strong>Micaela:</strong>Este es un mensaje 😄";
+
+      // creamos nodos elemento 2
+      const div2 = document.createElement("div"); // crea un p vacío
+
+      // configuramos su estilo
+      div2.className = "message";
+
+      // agregar contenido
+      div2.innerHTML = "<strong>Alfredo:</strong>Este es otro mensaje 😄";
+
+      // creamos nodos elemento 3
+      const div3 = document.createElement("div"); // crea un p vacío
+
+      // configuramos su estilo
+      div3.className = "message";
+
+      // agregar contenido
+      div3.innerHTML = "<strong>Pedro:</strong>Este tambien es otro mensaje 😄";
+
+      // mostramos los nuevos elementos en consola
+      console.log(div);
+
+      /*
+      // insertamos los nuevos elementos
+
+      // insert 1 - elemento de referencia
+      const target = document.querySelector(".messages");
+      console.log(target);
+
+      // insert 2 - insertamos el nuevo elemento en el elemento de referencia
+      target.append(div);
+      */
+
+      // insert utilizando Fragment
+      const fragment = new DocumentFragment();
+
+      fragment.append(div);
+      fragment.append(div2);
+      fragment.append(div3);
+
+      const target = document.querySelector(".messages");
+      target.append(fragment);
+
+      // si quisieramos eliminar el elemento creado
+      // div.remove();
+    </script>
+  </body>
+</html>

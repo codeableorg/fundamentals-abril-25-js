@@ -1,0 +1,26 @@
+<body>
+  <label for="terms">Aceptas los términos y condiciones</label>
+  <input type="checkbox" id="terms" name="terms" value="yes" checked />
+  <p class="titulo" aria-disabled="true" mi-atributo="no-estandar">
+    Hola Codeable
+  </p>
+
+  <script>
+    const label = document.querySelector("label");
+    const input = document.querySelector("input");
+    const p = document.querySelector("p");
+
+    console.log(label.htmlFor); // 'terms'
+    console.log(input.type); // 'checkbox'
+    console.log(input.id); // 'terms'
+    console.log(input.name); // 'terms'
+    console.log(input.value); // 'yes'
+    console.log(input.checked); // true
+    console.log(input.attributes);
+
+    console.log(p.className); // class -> className ('class' es una palabra reservada en javascript)
+    console.log(p.ariaDisabled); // aria-disabled -> ariaDisabled (kebab-case -> camelCase)
+    console.log(p.hasAttribute('mi-atributo'))
+    console.log(p.getAttribute('mi-atributo'))
+  </script>
+</body>

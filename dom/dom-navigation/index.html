@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejercicio</title>
+  </head>
+  <body>
+    <h1>Es es un ejercicio</h1>
+    <ul>
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+    </ul>
+  </body>
+  <script>
+    /*
+    const html = document.documentElement;
+    const title = document.head.firstElementChild;
+    const h1 = document.body.firstElementChild;
+    const ul = h1.nextElementSibling;
+    const li = null
+
+    // console.log(html)
+    // console.log(title)
+    console.log(ul)
+    */
+   const html = document.documentElement;
+   const title = document.head.firstElementChild;
+   const ulPrevious = document.body.children[0];
+   const ul = document.body.children[1];
+   const li = ul.lastElementChild;
+
+   console.log(html);
+   console.log(title);
+   console.log(ul);
+   console.log(ulPrevious);
+   console.log(li)
+  </script>
+</html>
